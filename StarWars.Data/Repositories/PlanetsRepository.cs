@@ -24,28 +24,6 @@ namespace StarWars.Data.Repositories
 
         public async Task<List<PlanetsViewModel>> GetMostAppearedPlanets()
         {
-            /*
-             select 
-		            pt.name planetName,
-		            count(pe.id) PilotsCount,
-		            pe.name PilotName,
-		            s.name SpeciesName
-            from	
-		            vehicles_pilots vp
-			            inner join vehicles v on v.id = vp.vehicle_id
-			            inner join people pe on pe.id = vp.people_id
-			            inner join species_people sp on sp.people_id = pe.id
-			            inner join species s on s.id = sp.species_id
-			            inner join films_characters fc on fc.people_id = pe.id
-			            inner join films f on f.id = fc.film_id
-			            inner join films_planets fp on fp.film_id = fc.film_id
-			            inner join planets pt on pt.id = fp.planet_id
-            group by 
-		            pt.name ,pe.name,s.name
-            order by 
-		            count(pe.id) desc
-             
-             */
             var mostAppearedSpecies = _db.Set<VehiclesPilots>()
             .Join(_db.Set<Vehicles>(), vehiclesPilots => vehiclesPilots.VehicleId, vehicles => vehicles.Id, (vehiclesPilots, vehicles) => new { vehiclesPilots, vehicles })
             .Join(_db.Set<People>(), vehiclesPilotsJoin => vehiclesPilotsJoin.vehiclesPilots.PeopleId, people => people.Id, (vehiclesPilotsJoin, people) => new { vehiclesPilotsJoin, people })

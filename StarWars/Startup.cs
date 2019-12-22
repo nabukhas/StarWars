@@ -12,7 +12,6 @@ using Newtonsoft.Json.Serialization;
 using StarWars.Core.Data;
 using StarWars.Core.Models;
 using StarWars.Data.Repositories;
-using StarWars.IdentityModels;
 using System.Text;
 
 namespace StarWars
@@ -48,33 +47,6 @@ namespace StarWars
             services.AddDbContext<StarwarsContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString("StarWarsConnection")));
 
-            // register authentication database 
-            services.AddDbContext<UsersDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("IdentityConnection")));
-            services.AddIdentity<User, IdentityRole>()
-                .AddEntityFrameworkStores<UsersDbContext>()
-                .AddDefaultTokenProviders();
-
-            //add token based (JWT) authentication to the app
-            services.AddAuthentication(options =>
-            {
-                options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-                options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-            })
-           .AddJwtBearer(options =>
-           {
-               options.SaveToken = true;
-               options.RequireHttpsMetadata = false;
-               options.TokenValidationParameters = new TokenValidationParameters()
-               {
-                   ValidateIssuer = true,
-                   ValidateAudience = true,
-                   ValidAudience =Configuration["AppSettings:ValidAudience"],
-                   ValidIssuer = Configuration["AppSettings:ValidIssuer"],
-                   IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("This is the secure key for test purpuse we just put here with no security")),
-               };
-           });
-
             // register the repositories to DI container
             services.AddScoped<IFilmsRepository, FilmsRepository>();
             services.AddScoped<IPeopleRepository, PeopleRepository>();
@@ -91,17 +63,12 @@ namespace StarWars
                 app.UseDeveloperExceptionPage();
             }
 
-            // intialize auth database with default user
-            SeedData.Initialize(app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope().ServiceProvider);
-
             // add the cores policy to allow any origin 
             app.UseCors("AllowMyOrigin");
 
             app.UseHttpsRedirection();
             app.UseRouting();
 
-            //add authentication to the app
-            app.UseAuthentication();
             app.UseAuthorization();
             
             app.UseEndpoints(endpoints =>

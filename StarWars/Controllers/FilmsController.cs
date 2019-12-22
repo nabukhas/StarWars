@@ -13,7 +13,7 @@ namespace StarWars.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class FilmsController : ControllerBase
     {
 
