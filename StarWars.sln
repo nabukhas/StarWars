@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29613.14
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars", "StarWars\StarWars.csproj", "{3418E5EF-7D3C-4002-B4E5-FE4C37D71E86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Data", "StarWars.Data\StarWars.Data.csproj", "{E5A5DBC0-63EF-48AD-804F-CF024991343C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StarWars.Core", "StarWars.Core\StarWars.Core.csproj", "{ADBEAB2C-91BE-4DEA-9C9D-A9BF926869B7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3418E5EF-7D3C-4002-B4E5-FE4C37D71E86}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3418E5EF-7D3C-4002-B4E5-FE4C37D71E86}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3418E5EF-7D3C-4002-B4E5-FE4C37D71E86}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3418E5EF-7D3C-4002-B4E5-FE4C37D71E86}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5A5DBC0-63EF-48AD-804F-CF024991343C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5A5DBC0-63EF-48AD-804F-CF024991343C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5A5DBC0-63EF-48AD-804F-CF024991343C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5A5DBC0-63EF-48AD-804F-CF024991343C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{ADBEAB2C-91BE-4DEA-9C9D-A9BF926869B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{ADBEAB2C-91BE-4DEA-9C9D-A9BF926869B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{ADBEAB2C-91BE-4DEA-9C9D-A9BF926869B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{ADBEAB2C-91BE-4DEA-9C9D-A9BF926869B7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F1392D8C-BC24-4289-890D-A094DCE26A07}
+	EndGlobalSection
+EndGlobal
